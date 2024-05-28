@@ -1,9 +1,9 @@
 package aulas;
+
 import java.lang.reflect.Array;
 
-
 // copia de VetorObject, para modificar e deixar a classe mais genérica (apenas um tipo de dado -> object do com elementos apenas string, apenas int, etc) 
-public class Lista<T>{
+public class Lista<T> {
 
     private T[] elementos;
     private int tamanho;
@@ -15,7 +15,7 @@ public class Lista<T>{
 
     //Famoso jeitinho para passar o instanciar um vetor passando dinamicamente o tipo - via 'refletion' - acessa métodos e atributos sendo possivel manipular eles
     public Lista(int capacidade, Class<T> tipoClasse) {
-        this.elementos = (T[])Array.newInstance(tipoClasse, capacidade);
+        this.elementos = (T[]) Array.newInstance(tipoClasse, capacidade);
         this.tamanho = 0;
     }
 
@@ -73,7 +73,7 @@ public class Lista<T>{
     public int busca(T elemento) {
         for (int i = 0; i < tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
-                return i; 
+                return i;
             }
         }
         return -1;
@@ -118,4 +118,52 @@ public class Lista<T>{
         return s.toString();
     }
 
+    /**
+     * ************** EXERCICIOS ***************
+     */
+    //1- Melhore a classe Lista e implemente o metodo contem  ( semelhante ao contains da classe ArrayList)
+    /* 
+        para fins de manuteção, para nao mexer em 2 codigos posteriormente faremos o metodo contem usando o metodo busca do arquivo Lista.java (o metodo contem é o mesmo codigo do metodo buscaBool e busca)
+     */
+    public boolean contem(T element) {
+        return busca(element) > -1;
+        /* ##CORREÇÃO## 
+         outra maneira do mesmo codigo
+
+         * int posicao = busca(element);
+         * if(posicao > -1) return true;
+         * else return false;
+         */
+    }
+
+    //2-Melhore a classe Lista e implemente o metodo ultimoIndice semelhante ao metodo lastIndexOf da clase ArrayList
+    
+    // metodo feito levado em consideração a forma do exercicio anterior
+    public int ultimoIndice(T element) {
+        for(int i = this.tamanho; i >0; i--){
+            if(this.elementos[i]==element) return  i;
+        }
+        return 0;
+    }
+
+    /*##CORREÇÃO##
+    Outras formas do codigo
+    
+    public int ultimoIndice(T element) {
+        
+        int ultimaPos = -1;
+        for(int i = 0; i < this.tamanho; i++){
+            if(this.elementos[i].equals(elemento)) ultimaPos = i;
+        }
+        return ultimaPos;
+    }
+      ou
+
+          public int ultimoIndice(T element) {
+        for(int i = this.tamanho-1; i>=0; i--){
+            if(this.elementos[i].equals(elemento)) return i;
+        }
+        return -1;
+    }
+     */
 }

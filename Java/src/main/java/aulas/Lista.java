@@ -54,7 +54,7 @@ public class Lista<T> {
         }
     }
 
-    public Object busca(int posicao) {
+    public T busca(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição invalida!");
         }
@@ -88,14 +88,14 @@ public class Lista<T> {
         }
         tamanho--;
     }
-
+/* substituido pela sobrecarga do metodo remove(T elemento)
     public void remove(VetorObject v, T elemento) {
         int pos = v.busca(elemento);
         if (pos >= 0) {
             v.remove(pos);
         }
     }
-
+*/
     public int tamanho() {
         return tamanho;
     }
@@ -166,4 +166,38 @@ public class Lista<T> {
         return -1;
     }
      */
+    
+     // 3- Melhore a classe lista e implemente o metodo remove(t elemento), onde sera possivel remover um elemento da lista quando passado o mesmo como parametro
+    public void remove(T elements) {
+        int pos = busca(elements);
+        if (pos >= 0) {
+            remove(pos);
+        }
+    }
+
+    // 4- Melhore a classe Lista e implemente o metodo obtem (int posicao), onde sera possivel obter o elemento dada uma posicao do vetor
+    //esse metodo é semelhante ao metodo get(int posicao) do arrayList
+
+    // como ja temos implementado usaremos a busca por posicao, tambem podemos só renomear o metodo busca(posicao) para obtem(posicao)
+    public T obtem(int posicao) {
+        return busca(posicao);
+    }
+
+    // 5- Melhore a classe Lista e implemente o metodo limpar, onde todos os elementos da lista sao removidos. Esse metodo é semelhante ao metodo clear da classe ArrayList
+    
+    public void limpar() {
+        this.elementos = (T[]) new Object[this.elementos.length];
+    }
+    /* ou
+    public void limpar() {
+        this.tamanho = 0;
+    }
+    ou
+
+    public void limpar() {
+        for (int i = 0; i < tamanho; i++){
+            if(elementos[i]!= null) elementos[i] = null;
+        }  
+        tamanho = 0;
+    }*/
 }

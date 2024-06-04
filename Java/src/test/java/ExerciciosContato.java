@@ -27,47 +27,54 @@ public class ExerciciosContato {
             opcao = menu(scan);
 
             switch (opcao) {
-                case 0:
-
-                    break;
                 case 1:
+                    clear();
                     addContato(scan, contactsList);
                     break;
                 case 2:
+                    clear();
                     addContatoPos(scan, contactsList);
                     break;
                 case 3:
+                    clear();
                     obtemContatoPos(scan, contactsList);
                     break;
                 case 4:
+                    clear();
                     pesquisaContato(scan, contactsList);
                     break;
                 case 5:
+                    clear();
                     pesquisaUltimoContato(scan, contactsList);
                     break;
                 case 6:
+                    clear();
                     verificaContato(scan, contactsList);
                     break;
                 case 7:
-
+                    clear();
+                    excluirPosicao(scan, contactsList);
                     break;
                 case 8:
-
+                    clear();
+                    excluirContato(scan, contactsList);
                     break;
                 case 9:
-
+                    clear();
+                    tamanhoVetor(contactsList);
                     break;
                 case 10:
-
+                    clear();
+                    limpaVetor(contactsList);
                     break;
                 case 11:
-
+                    clear();
+                    imprimeVetor(contactsList);
                     break;
                 default:
-                    throw new AssertionError();
+                    break;
             }
         }
-
         System.out.println("Encerrando ... ");
     }
 
@@ -80,7 +87,8 @@ public class ExerciciosContato {
 
         while (!entradaValida) {
 
-            System.out.println("Digite a opção desejada:\n");
+            clear();
+            System.out.println("\n\nDigite a opção desejada:\n");
             System.out.println("1: Adiciona um contato ao final do vetor");
             System.out.println("2: Adiciona contato em uma posição específica do vetor");
             System.out.println("3: Obtém contato de uma posição específica");
@@ -154,7 +162,6 @@ public class ExerciciosContato {
         Contato contato = new Contato(nome, telefone, email);
 
         int pos = leituraDadosInt("\n\nEntre com a posição desejada: ", scan);
-
         try {
             lista.adiciona(pos, contato);
             System.out.println("\n\nContato adicionado!");
@@ -168,7 +175,6 @@ public class ExerciciosContato {
     private static int leituraDadosInt(String msg, Scanner scan) {
         boolean entradaValida = false;
         int num = 0;
-
         while (!entradaValida) {
             try {
                 System.out.println(msg);
@@ -188,7 +194,6 @@ public class ExerciciosContato {
     private static void obtemContatoPos(Scanner scan, Lista<Contato> lista) {
 
         int pos = leituraDadosInt("Entre com a posição a ser pesquisada no vetor: ", scan);
-
         try {
             Contato contato = lista.obtem(pos);
 
@@ -203,10 +208,8 @@ public class ExerciciosContato {
     private static void pesquisaContato(Scanner scan, Lista<Contato> lista) {
 
         int pos = leituraDadosInt("Entre com a posicao a ser pesquisada: ", scan);
-
         try {
             Contato contato = lista.busca(pos);
-
             System.out.println("Contato encontrado: ");
             System.out.println(contato);
 
@@ -223,10 +226,8 @@ public class ExerciciosContato {
     private static void pesquisaUltimoContato(Scanner scan, Lista<Contato> lista) {
 
         int pos = leituraDadosInt("Entre com a posição a ser pesquisada no vetor: ", scan);
-
         try {
             Contato contato = lista.busca(pos);
-
             System.out.println("Ultimo Contato encontrado: ");
             System.out.println(contato);
 
@@ -241,9 +242,7 @@ public class ExerciciosContato {
     private static void verificaContato(Scanner scan, Lista<Contato> lista) {
 
         int pos = leituraDadosInt("Entre com a posição a ser pesquisada no vetor: ", scan);
-
         try {
-
             Contato contato = lista.busca(pos);
             Boolean existe = lista.contem(contato);
             if (existe) {
@@ -251,7 +250,6 @@ public class ExerciciosContato {
                 System.out.println(contato);
             } else {
                 System.out.println("Contato não existe");
-
             }
 
         } catch (Exception e) {
@@ -259,4 +257,43 @@ public class ExerciciosContato {
         }
     }
 
+    private static void excluirPosicao(Scanner scan, Lista<Contato> lista) {
+
+        int pos = leituraDadosInt("Entre com a posição a ser removida: ", scan);
+        try {
+            lista.remove(pos);
+            System.out.println("Contato removido com sucesso.");
+
+        } catch (Exception e) {
+            System.out.println("Posição invalida!");
+        }
+    }
+
+    private static void excluirContato(Scanner scan, Lista<Contato> lista) {
+
+        int pos = leituraDadosInt("Entre com a posição a ser removida: ", scan);
+        try {
+            Contato contato = lista.busca(pos);
+            lista.remove(contato);
+            System.out.println("Contato removido com sucesso.");
+
+        } catch (Exception e) {
+            System.out.println("Posição invalida!");
+        }
+    }
+
+    private static void tamanhoVetor(Lista<Contato> lista) {
+
+        System.out.println("O vetor possui tamanho igual a: " + lista.tamanho());
+    }
+
+    private static void limpaVetor(Lista<Contato> lista) {
+
+        lista.limpar();
+        System.out.println("Todos os contatos foram removidos, o vetor está vazio!");
+    }
+
+    private static void imprimeVetor(Lista<Contato> lista) {
+        System.out.println(lista);
+    }
 }

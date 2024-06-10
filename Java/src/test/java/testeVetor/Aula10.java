@@ -1,4 +1,4 @@
-import aulas.VetorObject;
+import aulas.Vetor.Vetor.VetorObject;
 
 public class Aula10 {
 

@@ -1,4 +1,4 @@
-package aulas;
+package aulas.Vetor;
 
 import java.lang.reflect.Array;
 
@@ -11,6 +11,10 @@ public class Lista<T> {
     public Lista(int capacidade) {
         this.elementos = (T[]) new Object[capacidade];
         this.tamanho = 0;
+    }
+    
+    public Lista(){
+        this(10);
     }
 
     //Famoso jeitinho para passar o instanciar um vetor passando dinamicamente o tipo - via 'refletion' - acessa métodos e atributos sendo possivel manipular eles

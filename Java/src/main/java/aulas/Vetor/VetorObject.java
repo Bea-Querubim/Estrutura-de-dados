@@ -1,4 +1,4 @@
-package aulas;
+package aulas.Vetor;
 
 //os comentarios foram retirados, pois esse arquivo é baseadao no Vetor.java
 // apenas alteramos o tipo String para Tipo Object, tambem alteramos o nome da classe Vetor para VetorObject

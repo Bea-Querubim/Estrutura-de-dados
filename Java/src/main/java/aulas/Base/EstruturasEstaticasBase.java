@@ -19,8 +19,8 @@ package aulas.Base;
 
 public class EstruturasEstaticasBase<T> {
 
-    private T[] elementos;
-    private int tamanho;
+    protected  T[] elementos;
+    protected int tamanho;
 
     public EstruturasEstaticasBase(int capacidade) {
         this.elementos = (T[]) new Object[capacidade];
@@ -31,6 +31,10 @@ public class EstruturasEstaticasBase<T> {
         this(10);
     }
 
+    public boolean isVoid(){
+        return this.tamanho == 0;
+    }
+    
     protected boolean adiciona(T elemento) {
         aumentaCapacidade();
         if (tamanho < elementos.length) {
@@ -55,6 +59,7 @@ public class EstruturasEstaticasBase<T> {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     private void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];

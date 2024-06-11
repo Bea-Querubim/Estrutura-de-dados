@@ -1,4 +1,4 @@
-import aulas.Lista;
+import aulas.Vetor.Vetor.Lista;
 
 public class Aula11 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package aulas;
+package aulas.Vetor;
 
 public class Vetor {
 

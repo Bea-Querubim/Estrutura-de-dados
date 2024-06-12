@@ -8,7 +8,7 @@ public class Pilha<T> extends EstruturasEstaticasBase<T>{
     }
 
     public pilha(int capacidade){
-        super.(capacidade); 
+        super(capacidade); 
     }
 
     public void empilhar(T elemento){

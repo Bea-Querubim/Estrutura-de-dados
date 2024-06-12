@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 import aulas.Pilha.Pilha;
 
-public class Exercicios {
+public class Exercicios01 {
 
     public static void main(String[] args) {
-       //---------Exercicio 1-------------------
+//---------Exercicio 1-------------------
         //Escreva um porgrama que leia 10 numeros
         Pilha<Integer> pilhaTeste = new Pilha<Integer>();
         //pilhaTeste.pilha(10);
 
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\n");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println("\nEntre com o " + (i + 1) + "º numero: ");
             int num = scan.nextInt();
             //se o num digitado for par, empilhe

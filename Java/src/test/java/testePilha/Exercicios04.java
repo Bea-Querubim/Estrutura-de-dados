@@ -1,15 +1,15 @@
 package testePilha;
 
 import java.util.Scanner;
+import java.util.Stack;
 
-import aulas.Pilha.Pilha;
-
-public class Exercicio03 {
+public class Exercicios04 {
 
     public static void main(String[] args) {
-//---------Exercicio 2-------------------
+//---------Exercicio 4-------------------
+// fazer o mesmo programa do exercicio 3 porem usando a classe Stack nativa do JAVA
         //Pilha com capacidade para 20 livros
-        Pilha<Livro> pilhaLivros = new Pilha<Livro>();
+        Stack<Livro> pilhaLivros = new Stack<Livro>();
 
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\n");
@@ -80,7 +80,7 @@ public class Exercicio03 {
                 System.out.println(msg);
                 String entradaDados = scan.nextLine();
 
-                num = Integer.parseInt(entradaDados); // se o parse der ruim, ele ja cai na exceção, nao executa a proxima linha de codigo
+                num = Integer.parseInt(entradaDados);
 
                 entradaValida = true;
 
@@ -91,7 +91,7 @@ public class Exercicio03 {
         return num;
     }
 
-    private static void addLivro(Scanner scan, Pilha<Livro> pilha) {
+    private static void addLivro(Scanner scan, Stack<Livro> pilha) {
         System.out.println("Entre com as informações do Livro...\n");
 
         String nome = leituraDados("Entre com o nome: ", scan);
@@ -101,20 +101,20 @@ public class Exercicio03 {
 
         Livro livro = new Livro(nome, isbn, ano, autor);
         try {
-            pilha.empilhar(livro);
+            pilha.push(livro); //push para adicionar a pilha
             System.out.println(livro + " empilhado com sucesso.");
         } catch (Exception e) {
             System.out.println("Erro ao adicionar livro a pilha...");
         }
     }
 
-    private static void verificarUltimoLivro(Pilha<Livro> pilha) {
-        System.out.println("O ultimo livro da pilha é: " + pilha.lastElement());
+    private static void verificarUltimoLivro(Stack<Livro> pilha) {
+        System.out.println("O ultimo livro da pilha é: " + pilha.peek());
     }
 
-    private static void tirarLivro(Pilha<Livro> pilha) {
+    private static void tirarLivro(Stack<Livro> pilha) {
         System.out.println("Desempilhando...: "+pilha);
-        pilha.desempilhar();
+        pilha.pop();
         System.out.println("Atual pilha de livros:\n" + pilha);
     }
 }

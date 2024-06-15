@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import aulas.Pilha.Pilha;
 
-public class Exercicio02 {
+public class Exercicios02 {
 
     public static void main(String[] args) {
 //---------Exercicio 2-------------------

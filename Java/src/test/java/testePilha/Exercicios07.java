@@ -12,24 +12,22 @@ public class Exercicios07 {
         System.out.println("Digite a o numero a ser convertido: ");
         int numero = scan.nextInt();
         //resultado(numero);
-        System.out.println("\n\n");
 
         int opcao = 1;
-
         while (opcao != 0) {
             opcao = menu(scan);
-            
+
             switch (opcao) {
                 case 1:
-                String resultadoConversao = conversaoQlqBase(numero, 2);
-                resultado( numero, resultadoConversao);
-                    break;
+                    String resultadoConversao = conversaoQlqBase(numero, 2);
+                    resultado(numero, resultadoConversao);
+                        break;
                 case 2:
                     System.out.println("Digite a base que irá converter o numero " + numero + ":");
                     int base = scan.nextInt();
                     resultadoConversao = conversaoQlqBase(numero, base);
-                    resultado( numero, resultadoConversao);
-                    break;
+                    resultado(numero, resultadoConversao);
+                        break;
                 default:
                     break;
             }
@@ -38,10 +36,8 @@ public class Exercicios07 {
 
     //apresenta menu
     protected static int menu(Scanner scan) {
-
         boolean entradaValida = false;
         int opcao = 0;
-        String entrada;
 
         while (!entradaValida) {
 
@@ -49,12 +45,11 @@ public class Exercicios07 {
             System.out.println("1: Converter o numero para binario.");
             System.out.println("2: Converter o numero para outra base");
             System.out.println("0: Sair\n\n");
-
+            
             try {
-                entrada = scan.nextLine();
-                opcao = Integer.parseInt(entrada);
+                opcao = scan.nextInt();
 
-                if (opcao >= 0 && opcao <= 3) {
+                if (opcao >= 0 && opcao <= 2) {
                     entradaValida = true;
                 } else {
                     throw new Exception();
@@ -87,7 +82,7 @@ public class Exercicios07 {
         return binario;
     }
      */
-    public static String conversaoQlqBase(int num, int base ) {
+    public static String conversaoQlqBase(int num, int base) {
         Stack<Integer> stack = new Stack<>();
         String numBase = "";
         int resto;

@@ -1,4 +1,6 @@
-# Repositório: Entendendo Estrutura de Dados.
+# Repositório: Estudos
+
+# Entendendo Estrutura de Dados.
 
 Repositorio dedicado ao estudo da Estrutura de Dados,para compreender melhor o armazenamento e organização de dados de modo que possam ser usados da maneira mais eficientemente,
 pretendo subir estudos de diferentes linguagens para compreender melhor a teoria. 
@@ -12,4 +14,11 @@ pretendo subir estudos de diferentes linguagens para compreender melhor a teoria
 -
 -
 -
+
+# POO 
+
+Estudo sobre POO em Java pelo Coursera e Udemy
+->[Coursera](https://www.coursera.org/learn/orientacao-a-objetos-com-java/)
+->[Udemy](https://www.udemy.com/course/java-curso-completo/)
+
 
